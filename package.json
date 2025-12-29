@@ -3,10 +3,15 @@
   "version": "1.1.0",
   "description": "A TypeScript library for validating credit card numbers, determining card types, and providing card-specific information like CVV length",
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "type": "module",
+  "files": [
+    "dist",
+    "!dist/**/*.test.*",
+    "!dist/**/*.spec.*"
+  ],
   "scripts": {
-    "build": "tsc",
-    "dev": "tsc --watch",
+    "build": "rollup --config rollup.config.js",
+    "dev": "rollup --config rollup.config.js --watch",
     "clean": "rm -rf dist",
     "test": "jest",
     "lint": "eslint src/**/*.ts",
@@ -25,14 +30,18 @@
   "author": "Your Name",
   "license": "MIT",
   "devDependencies": {
+    "@rollup/plugin-typescript": "^8.3.4",
     "@types/jest": "^29.5.0",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "eslint": "^8.0.0",
+    "eslint-config-prettier": "^8.6.0",
     "husky": "^9.1.7",
     "jest": "^29.5.0",
     "prettier": "^3.0.0",
+    "rollup": "^2.77.2",
     "ts-jest": "^29.1.0",
+    "tslib": "^2.8.1",
     "typescript": "^5.0.0"
   }
 }
